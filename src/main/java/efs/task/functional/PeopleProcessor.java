@@ -1,7 +1,7 @@
 package efs.task.functional;
 
-import java.util.stream.Collectors;
 import java.util.*;
+import java.util.stream.Collectors;
 
 class PeopleProcessor {
 
@@ -15,7 +15,7 @@ class PeopleProcessor {
     // TODO: kontynuuj implementację metody tak, aby dla kolekcji (people) obiektów klasy Person zwracała listę
     //       imion ludzi żyjących w danym mieście (cityOfLiving). Lista ma być posortowana po wieku osób.
     List<String> namesOfPeopleSortedByAgeLivingIn(String cityOfLiving, Collection<Person> people) {
-        return people.stream().filter(person -> person.getCityOfLiving().equals(cityOfLiving))
+        return people.stream().filter(person -> cityOfLiving.equals(person.getCityOfLiving()))
                 .sorted(Comparator.comparingInt(Person::getAge)).map(Person::getName).collect(Collectors.toList());
     }
 
